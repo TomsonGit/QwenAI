@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuchnie - K.A.T. Service</title>
+    <meta name="description" content="Zobacz nasze realizacje kuchni. Profesjonalna firma budowlana z Radomia – remonty, wykończenia wnętrz.">
+    <meta name="keywords" content="kuchnie, remont kuchni, wykończenia, Radom, budowlana, firma, usługi, wnętrza">
+    
+    <!-- Google Fonts - Poppins i Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Główny plik CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png" type="image/png">
+</head>
+<body>
+    <!-- Sekcja hero z tłem wideo -->
+    <section class="hero" id="main">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <h1 class="main-title">K.A.T. SERVICE</h1>
+                <div class="divider"></div>
+                <p class="subtitle">usługi remontowo wykończeniowe</p>
+            </div>
+            <a href="#gallery" class="cta-button smooth-scroll">ZOBACZ NASZE REALIZACJE</a>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Nawigacja -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html#main">
+                    <img src="images/logoKATtest.png" alt="K.A.T. Service Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#offer" class="nav-link">Oferta</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#gallery" class="nav-link">Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://fixly.pl/profil/tchorzewski-krzysztof" class="nav-link" target="_blank">
+                        <img src="images/fixlyicon.png" alt="Fixly" class="fixly-icon">
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Sekcja galerii -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Realizacje Kuchni</h2>
+            <div class="gallery-categories">
+                <a href="index.html#gallery" class="gallery-category">Powrót do Galerii</a>
+                <a href="toilets.html" class="gallery-category">Łazienki</a>
+                <a href="livingroom.html" class="gallery-category">Salony</a>
+                <a href="bedroom.html" class="gallery-category">Sypialnie</a>
+            </div>
+            <div class="gallery-grid">
+                <!-- Gallery items will be added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 K.A.T. Service. Wszelkie prawa zastrzeżone.</p>
+            <div class="privacy-info">
+                <p>Szanujemy prywatność naszych użytkowników. Nasza strona internetowa nie zbiera żadnych danych osobowych.</p>
+                <p>Nie stosujemy formularzy kontaktowych, newsletterów ani narzędzi śledzących (np. Google Analytics).</p>
+                <p>Korzystanie ze strony oznacza akceptację powyższych zasad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <span class="lightbox-caption" id="lightbox-caption"></span>
+        <button class="lightbox-nav lightbox-prev">&#10094;</button>
+        <button class="lightbox-nav lightbox-next">&#10095;</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+    <script>
+        // Generate gallery items for kitchens
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryGrid = document.querySelector('.gallery-grid');
+            // There is 1 image in imgk directory (kitchens)
+            const images = [];
+            for (let i = 1; i <= 1; i++) {
+                images.push({
+                    src: `imgk/${i}.jpeg`,
+                    alt: `Realizacja kuchni ${i}`
+                });
+            }
+            
+            // Create gallery items
+            images.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `<img src="${image.src}" alt="${image.alt}">`;
+                galleryItem.addEventListener('click', () => {
+                    // Open lightbox with this image
+                    if (typeof openLightbox === 'function') {
+                        openLightbox(image.src, image.alt, images, index);
+                    } else {
+                        console.error('openLightbox function is not available');
+                    }
+                });
+                galleryGrid.appendChild(galleryItem);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K.A.T. Service - Profesjonalne Usługi Remontowe</title>
+    <meta name="description" content="Profesjonalna firma budowlana z Radomia – remonty, wykończenia wnętrz. Doświadczona ekipa, terminowość i tylko pozytywne opinie. Działamy w Radomiu i okolicach.">
+    <meta name="keywords" content="budowa, remont, wykończenia, Radom, budowlana, firma, usługi, domy, mieszkań, ekipa, tynki, docieplenia, adaptacje, poddasze, malowanie, fachowcy, solidnie, tanio, opinie, lokalnie, zaufanie, jakość, terminowość, Krzysztof Tchórzewski">
+    
+    <!-- Google Fonts - Poppins i Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome dla ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Główny plik CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/icon.png" type="image/png">
+</head>
+<body>
+    <!-- Sekcja hero z tłem wideo -->
+    <section class="hero" id="main">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-container">
+                <h1 class="main-title">K.A.T. SERVICE</h1>
+                <div class="divider"></div>
+                <p class="subtitle">usługi remontowo wykończeniowe</p>
+            </div>
+            <a href="#offer" class="cta-button smooth-scroll">POZNAJ NASZĄ OFERTĘ</a>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Nawigacja -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#main">
+                    <img src="images/logoKATtest.png" alt="K.A.T. Service Logo">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#offer" class="nav-link smooth-scroll">Oferta</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#gallery" class="nav-link smooth-scroll">Galeria</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link smooth-scroll">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://fixly.pl/profil/tchorzewski-krzysztof" class="nav-link" target="_blank">
+                        <img src="images/fixlyicon.png" alt="Fixly" class="fixly-icon">
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Sekcja informacji o firmie -->
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">Dlaczego warto wybrać nas?</h2>
+            <div class="about-content">
+                <div class="about-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <h3>Doświadczenie</h3>
+                    <p>15 lat doświadczenia w branży budowlanej i remontowej.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Certyfikaty</h3>
+                    <p>Wszyscy nasi pracownicy posiadają odpowiednie certyfikaty.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-thumbs-up"></i>
+                    <h3>Zaufanie</h3>
+                    <p>Tysiące zadowolonych klientów potwierdza naszą jakość.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Terminowość</h3>
+                    <p>Zawsze realizujemy projekty zgodnie z ustalonym terminem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja z ofertą usług -->
+    <section class="services" id="offer">
+        <div class="container">
+            <h2 class="section-title">Nasza Oferta</h2>
+            <div class="services-grid">
+                <div class="service-card" data-service="malowanie">
+                    <div class="service-icon">
+                        <img src="images/paint-roller.png" alt="Malowanie">
+                    </div>
+                    <h3 class="service-title">Malowanie</h3>
+                    <div class="service-description">
+                        <p>Profesjonalne malowanie wnętrz i elewacji, stosujemy farby wysokiej jakości i ekologiczne materiały.</p>
+                        <ul>
+                            <li>Trwałość kolorów</li>
+                            <li>Bezpieczeństwo dla alergików</li>
+                            <li>Różne techniki aplikacji</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="szpachlowanie">
+                    <div class="service-icon">
+                        <img src="images/spatula.png" alt="Szpachlowanie">
+                    </div>
+                    <h3 class="service-title">Szpachlowanie</h3>
+                    <div class="service-description">
+                        <p>Profesjonalne szpachlowanie ścian i sufitów, gwarancja gładkiej powierzchni idealnej pod malowanie i tapetowanie.</p>
+                        <ul>
+                            <li>Bezperfekcyjna gładkość</li>
+                            <li>Stosowanie wysokiej jakości szpachli</li>
+                            <li>Szybki i precyzyjny czas realizacji</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="zabudowy">
+                    <div class="service-icon">
+                        <img src="images/brush_2054319.png" alt="Zabudowy GK">
+                    </div>
+                    <h3 class="service-title">Zabudowy GK</h3>
+                    <div class="service-description">
+                        <p>Nowoczesne zabudowy z płyt gipsowo-kartonowych, tworzymy przestrzenie dopasowane do Twoich potrzeb.</p>
+                        <ul>
+                            <li>Elastyczne rozwiązania przestrzenne</li>
+                            <li>Możliwość ukrycia instalacji</li>
+                            <li>Szybki montaż i trwałość</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="hydraulika">
+                    <div class="service-icon">
+                        <img src="images/pipe.png" alt="Hydraulika">
+                    </div>
+                    <h3 class="service-title">Hydraulika</h3>
+                    <div class="service-description">
+                        <p>Kompleksowe usługi hydrauliczne: od projektowania, przez montaż, po serwis instalacji wodno-kanalizacyjnych.</p>
+                        <ul>
+                            <li>Bezpieczne rozwiązania</li>
+                            <li>Zgodność z normami</li>
+                            <li>Szybka lokalizacja awarii</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="plytki">
+                    <div class="service-icon">
+                        <img src="images/tile_2515354.png" alt="Płytki glazura/terakota">
+                    </div>
+                    <h3 class="service-title">Płytki glazura/terakota</h3>
+                    <div class="service-description">
+                        <p>Estetyczne i trwałe układy płytek ceramicznych, gresowych i terakotowych w łazienkach, kuchniach i innych pomieszczeniach.</p>
+                        <ul>
+                            <li>Precyzyjne dopasowanie fug</li>
+                            <li>Trwałość i odporność</li>
+                            <li>Estetyczne wzory i kolory</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="elektryka">
+                    <div class="service-icon">
+                        <img src="images/energy.png" alt="Elektryka">
+                    </div>
+                    <h3 class="service-title">Elektryka</h3>
+                    <div class="service-description">
+                        <p>Projektowanie i montaż instalacji elektrycznych, inteligentne rozwiązania dla nowoczesnego mieszkania.</p>
+                        <ul>
+                            <li>Bezpieczeństwo i niezawodność</li>
+                            <li>Instalacje inteligentnego domu</li>
+                            <li>Zgodność z normami bezpieczeństwa</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="podlogi">
+                    <div class="service-icon">
+                        <img src="images/parquet_4440909.png" alt="Układanie podłóg">
+                    </div>
+                    <h3 class="service-title">Układanie podłóg</h3>
+                    <div class="service-description">
+                        <p>Ekspertiza w układaniu różnych rodzajów podłóg: panele, laminaty, terakota, systemy PCV i wiele innych.</p>
+                        <ul>
+                            <li>Precyzyjne dopasowanie</li>
+                            <li>Kompatybilność z różnymi otoczeniami</li>
+                            <li>Gwarancja trwałości</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="service-card" data-service="docieplanie">
+                    <div class="service-icon">
+                        <img src="images/roof-svgrepo-com.png" alt="Docieplanie poddaszy">
+                    </div>
+                    <h3 class="service-title">Docieplanie poddaszy</h3>
+                    <div class="service-description">
+                        <p>Efektywne docieplanie poddaszy użytkowych, obniżenie kosztów ogrzewania i poprawa komfortu cieplnego.</p>
+                        <ul>
+                            <li>Znaczące oszczędności</li>
+                            <li>Poprawa izolacji akustycznej</li>
+                            <li>Możliwość użytkowania przez cały rok</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja galerii -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Przykłady zrealizowanych projektów</h2>
+            <div class="gallery-categories">
+                <a href="toilets.html" class="gallery-category">Łazienki</a>
+                <a href="livingroom.html" class="gallery-category">Salony</a>
+                <a href="kitchen.html" class="gallery-category">Kuchnie</a>
+                <a href="bedroom.html" class="gallery-category">Sypialnie</a>
+            </div>
+            <div class="gallery-slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="imgt/10.jpeg" alt="Przykład realizacji 1">
+                    </div>
+                    <div class="slide">
+                        <img src="imgbr/5.jpeg" alt="Przykład realizacji 2">
+                    </div>
+                    <div class="slide">
+                        <img src="imgt/24.jpeg" alt="Przykład realizacji 3">
+                    </div>
+                </div>
+                <button class="slider-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja opinii klientów -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Opinie naszych klientów</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Profesjonalna obsługa i świetna jakość wykonania prac. Polecam serdecznie!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user"></i>
+                        <span>Jan Kowalski</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Szybko, sprawnie i estetycznie. Zrobili dokładnie to, o czym marzyłem!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user"></i>
+                        <span>Anna Nowak</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Najlepsi w swoim fachu. Zdecydowanie będę korzystać ponownie!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <i class="fas fa-user"></i>
+                        <span>Piotr Wiśniewski</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dodatkowe CTA -->
+    <section class="cta-extra">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Gotowy na nowy projekt?</h2>
+                <p>Skontaktuj się z nami już dziś i umów się na bezpłatną wycenę!</p>
+                <a href="#contact" class="cta-button smooth-scroll">SKONTAKTUJ SIĘ Z NAMI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">Najczęściej zadawane pytania</h2>
+            <div class="faq-content">
+                <div class="faq-item">
+                    <h3 class="faq-question">Jak długo trwa realizacja remontu?</h3>
+                    <p class="faq-answer">Czas realizacji zależy od zakresu prac, ale staramy się zawsze kończyć projekty terminowo. Szczegóły omawiamy indywidualnie z każdym klientem.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Czy oferujecie gwarancję na wykonane usługi?</h3>
+                    <p class="faq-answer">Tak, oferujemy gwarancję na wszystkie nasze usługi. Szczegóły gwarancji omawiamy z klientem przed podpisaniem umowy.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Czy sami dostarczacie materiały do remontu?</h3>
+                    <p class="faq-answer">Możemy dostarczyć materiały na życzenie klienta. W większości przypadków jednak klienci preferują samodzielne zakupy, a my realizujemy tylko usługi.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Jak mogę zapłacić za wykonane usługi?</h3>
+                    <p class="faq-answer">Akceptujemy płatności gotówkowe oraz przelew bankowy. Możliwe jest również rozłożenie płatności na raty - szczegóły omawiamy indywidualnie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja kontaktowa -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Kontakt</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p>Masz pytanie lub chcesz złożyć zamówienie? Skontaktuj się z nami!</p>
+                    <p class="phone-number">📞 513 812 943</p>
+                    <div class="opening-hours">
+                        <h3>Godziny dostępności:</h3>
+                        <p>Poniedziałek - Piątek: 08:00 - 20:00</p>
+                        <p>Sobota: 09:00 - 18:00</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Twoje imię" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Twój e-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stopka -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 K.A.T. Service. Wszelkie prawa zastrzeżone.</p>
+            <div class="privacy-info">
+                <p>Szanujemy prywatność naszych użytkowników. Nasza strona internetowa nie zbiera żadnych danych osobowych.</p>
+                <p>Nie stosujemy formularzy kontaktowych, newsletterów ani narzędzi śledzących (np. Google Analytics).</p>
+                <p>Korzystanie ze strony oznacza akceptację powyższych zasad.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <span class="lightbox-caption" id="lightbox-caption"></span>
+        <button class="lightbox-nav lightbox-prev">&#10094;</button>
+        <button class="lightbox-nav lightbox-next">&#10095;</button>
+    </div>
+
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YOUR_USER_ID"); // Zastąp "YOUR_USER_ID" swoim rzeczywistym User ID z EmailJS
+        })();
+    </script>
+    
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>

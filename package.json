@@ -1,0 +1,16 @@
+{
+  "name": "katservice-modern",
+  "version": "1.0.0",
+  "description": "Nowoczesna strona dla K.A.T. Service",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["html", "css", "javascript", "website"],
+  "author": "K.A.T. Service",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
