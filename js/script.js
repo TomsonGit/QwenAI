@@ -105,11 +105,14 @@ if (contactForm) {
             from_name: name,
             from_email: email,
             message: message,
-            to_email: 'tomasztchorzewski1@gmail.com' // Zastąp rzeczywistym adresem e-mail odbiorcy
         };
         
+        (function() {
+            emailjs.init("0VNKz3dVMKzx9RfhM");
+        })();
+
         // Wysyłka wiadomości przy użyciu EmailJS
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+        emailjs.send('service_ftpa2vb', 'template_6by0h6e', templateParams)
             .then(function(response) {
                 console.log('SUCCESS!', response.status, response.text);
                 alert('Dziękujemy za wiadomość! Skontaktujemy się z Tobą wkrótce.');
