@@ -105,7 +105,7 @@ if (contactForm) {
             from_name: name,
             from_email: email,
             message: message,
-            to_email: 'odbiorca@example.com' // Zastąp rzeczywistym adresem e-mail odbiorcy
+            to_email: 'tomasztchorzewski1@gmail.com' // Zastąp rzeczywistym adresem e-mail odbiorcy
         };
         
         // Wysyłka wiadomości przy użyciu EmailJS
