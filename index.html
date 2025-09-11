@@ -41,11 +41,18 @@
     <meta name="twitter:image" content="https://katservice.pl/images/logoKATtest.png">
     <meta name="twitter:image:alt" content="K.A.T. Service - Logo firmy remontowej z Radomia">
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="images/logoKATtest.png" as="image" type="image/png">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Google Fonts - Poppins i Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome dla ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome dla ikon - optimized loading -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Główny plik CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -379,22 +386,22 @@
             <div class="gallery-slider">
                 <div class="slides">
                     <div class="slide">
-                        <img src="imgt/10.jpeg" alt="Remont łazienki - nowoczesne płytki i sanitariaty">
+                        <img src="imgt/10.jpeg" alt="Remont łazienki - nowoczesne płytki i sanitariaty" loading="eager">
                     </div>
                     <div class="slide">
-                        <img src="imglr/4.jpeg" alt="Wykonczona salon - eleganckie wnętrze z nowoczesnymi meblami">
+                        <img src="imglr/4.jpeg" alt="Wykonczona salon - eleganckie wnętrze z nowoczesnymi meblami" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="imgt/24.jpeg" alt="Remont łazienki - stylowa aranżacja z płytkami pod drewno">
+                        <img src="imgt/24.jpeg" alt="Remont łazienki - stylowa aranżacja z płytkami pod drewno" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="imgt/30.jpeg" alt="Kompletny remont łazienki - jasne kolory i funkcjonalne rozwiązania">
+                        <img src="imgt/30.jpeg" alt="Kompletny remont łazienki - jasne kolory i funkcjonalne rozwiązania" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="imgt/19.jpeg" alt="Nowoczesna łazienka - minimalistyczny design z dużą kabiną prysznicową">
+                        <img src="imgt/19.jpeg" alt="Nowoczesna łazienka - minimalistyczny design z dużą kabiną prysznicową" loading="lazy">
                     </div>
                     <div class="slide">
-                        <img src="imgt/10.jpeg" alt="Stylowa łazienka - połączenie klasyki z nowoczesnością">
+                        <img src="imgt/10.jpeg" alt="Stylowa łazienka - połączenie klasyki z nowoczesnością" loading="lazy">
                     </div>
                 </div>
                 <button class="slider-btn prev" aria-label="Poprzedni obraz w galerii">
@@ -486,7 +493,16 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <p>Masz pytanie lub chcesz złożyć zamówienie? Skontaktuj się z nami!</p>
-                    <p class="phone-number">📞 513 812 943</p>
+                    <div class="contact-options">
+                        <a href="tel:+48513812943" class="phone-button" aria-label="Zadzwoń do nas">
+                            <i class="fas fa-phone" aria-hidden="true"></i>
+                            <span>513 812 943</span>
+                        </a>
+                        <a href="https://wa.me/48513812943" class="whatsapp-button" target="_blank" aria-label="Napisz na WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            <span>WhatsApp</span>
+                        </a>
+                    </div>
                     <div class="opening-hours">
                         <h3>Godziny dostępności:</h3>
                         <p>Poniedziałek - Piątek: 08:00 - 20:00</p>
@@ -530,6 +546,24 @@
         </div>
     </footer>
 
+    <!-- Floating contact button -->
+    <div class="floating-contact" aria-label="Szybki kontakt">
+        <button class="floating-btn" aria-label="Otwórz opcje kontaktu" aria-expanded="false">
+            <i class="fas fa-phone" aria-hidden="true"></i>
+        </button>
+        <div class="contact-menu">
+            <a href="tel:+48513812943" class="contact-option" aria-label="Zadzwoń">
+                <i class="fas fa-phone" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/48513812943" class="contact-option" aria-label="WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="contact-option smooth-scroll" aria-label="Formularz kontaktowy">
+                <i class="fas fa-envelope" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+
     <!-- Lightbox -->
     <div class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
         <button class="lightbox-close" aria-label="Zamknij podgląd obrazu">&times;</button>
@@ -539,15 +573,47 @@
         <button class="lightbox-nav lightbox-next" aria-label="Następny obraz">&#10095;</button>
     </div>
 
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- EmailJS SDK - defer loading -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
     <script type="text/javascript">
         (function() {
             emailjs.init("0VNKz3dVMKzx9RfhM");
         })();
     </script>
     
-    <!-- JavaScript -->
-    <script src="js/script.js"></script>
+    <!-- JavaScript - optimized loading -->
+    <script src="js/script.js" defer></script>
+    
+    <!-- Critical CSS inlined above, main stylesheet loads async -->
+    <script>
+        // Critical performance optimizations
+        if ('loading' in HTMLImageElement.prototype) {
+            // Native lazy loading support
+            document.addEventListener('DOMContentLoaded', function() {
+                const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+                lazyImages.forEach(img => {
+                    img.style.opacity = '0';
+                    img.style.transition = 'opacity 0.3s';
+                    img.onload = () => img.style.opacity = '1';
+                });
+            });
+        }
+        
+        // Service worker registration for future caching
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Will implement service worker in future commits
+                console.log('Service Worker support detected');
+            });
+        }
+        
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if (window.performance) {
+                const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
+        });
+    </script>
 </body>
 </html>

@@ -334,3 +334,74 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Touch gesture support for gallery slider
+let touchStartX = 0;
+let touchEndX = 0;
+let isSwipping = false;
+
+function handleTouchStart(event) {
+    touchStartX = event.changedTouches[0].screenX;
+    isSwipping = true;
+}
+
+function handleTouchEnd(event) {
+    if (!isSwipping) return;
+    
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe();
+    isSwipping = false;
+}
+
+function handleSwipe() {
+    const swipeThreshold = 50; // minimum distance for swipe
+    const swipeDistance = touchStartX - touchEndX;
+    
+    if (Math.abs(swipeDistance) < swipeThreshold) return;
+    
+    if (swipeDistance > 0) {
+        // Swipe left - next slide
+        showSlide(currentSlide + 1);
+    } else {
+        // Swipe right - previous slide  
+        showSlide(currentSlide - 1);
+    }
+}
+
+// Add touch listeners to gallery slider
+document.addEventListener('DOMContentLoaded', function() {
+    const gallerySlider = document.querySelector('.gallery-slider');
+    if (gallerySlider) {
+        gallerySlider.addEventListener('touchstart', handleTouchStart, { passive: true });
+        gallerySlider.addEventListener('touchend', handleTouchEnd, { passive: true });
+    }
+});
+
+// Improve form validation and mobile experience
+document.addEventListener('DOMContentLoaded', function() {
+    const formInputs = document.querySelectorAll('input, textarea');
+    
+    formInputs.forEach(input => {
+        // Add better mobile input handling
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            if (!this.value) {
+                this.parentElement.classList.remove('focused');
+            }
+        });
+        
+        // Real-time validation feedback
+        input.addEventListener('input', function() {
+            if (this.validity.valid) {
+                this.classList.remove('error');
+                this.classList.add('valid');
+            } else {
+                this.classList.remove('valid');
+                this.classList.add('error');
+            }
+        });
+    });
+});
