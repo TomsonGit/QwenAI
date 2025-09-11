@@ -29,10 +29,10 @@
                 <div class="divider"></div>
                 <p class="subtitle">usługi remontowo wykończeniowe</p>
             </div>
-            <a href="#offer" class="cta-button smooth-scroll">POZNAJ NASZĄ OFERTĘ</a>
+            <a href="#offer" class="cta-button smooth-scroll" aria-label="Przejdź do sekcji z ofertą usług">POZNAJ NASZĄ OFERTĘ</a>
         </div>
-        <div class="scroll-down">
-            <i class="fas fa-chevron-down"></i>
+        <div class="scroll-down" role="button" aria-label="Przewiń w dół do następnej sekcji">
+            <i class="fas fa-chevron-down" aria-hidden="true"></i>
         </div>
     </section>
 
@@ -40,31 +40,33 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="#main">
-                    <img src="images/logoKATtest.png" alt="K.A.T. Service Logo">
+                <a href="#main" aria-label="Przejdź do strony głównej">
+                    <img src="images/logoKATtest.png" alt="K.A.T. Service - Logo firmy remontowej z Radomia">
                 </a>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#offer" class="nav-link smooth-scroll">Oferta</a>
+            <nav aria-label="Główna nawigacja">
+                <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="#offer" class="nav-link smooth-scroll" role="menuitem">Oferta</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#gallery" class="nav-link smooth-scroll">Galeria</a>
+                <li class="nav-item" role="none">
+                    <a href="#gallery" class="nav-link smooth-scroll" role="menuitem">Galeria</a>
                 </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link smooth-scroll">Kontakt</a>
+                <li class="nav-item" role="none">
+                    <a href="#contact" class="nav-link smooth-scroll" role="menuitem">Kontakt</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://fixly.pl/profil/tchorzewski-krzysztof" class="nav-link" target="_blank">
-                        <img src="images/fixlyicon.png" alt="Fixly" class="fixly-icon">
+                <li class="nav-item" role="none">
+                    <a href="https://fixly.pl/profil/tchorzewski-krzysztof" class="nav-link" target="_blank" aria-label="Zobacz nasz profil na Fixly - otworzy się w nowej karcie" role="menuitem">
+                        <img src="images/fixlyicon.png" alt="Fixly - platforma usług remontowych" class="fixly-icon">
                     </a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            </nav>
+            <button class="hamburger" aria-label="Otwórz menu nawigacji" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
     
@@ -104,7 +106,7 @@
             <div class="services-grid">
                 <div class="service-card" data-service="malowanie">
                     <div class="service-icon">
-                        <img src="images/paint-roller.png" alt="Malowanie">
+                        <img src="images/paint-roller.png" alt="Ikona wałka malarskiego - usługi malowania">
                     </div>
                     <h3 class="service-title">Malowanie</h3>
                     <div class="service-description">
@@ -118,7 +120,7 @@
                 </div>
                 <div class="service-card" data-service="szpachlowanie">
                     <div class="service-icon">
-                        <img src="images/spatula.png" alt="Szpachlowanie">
+                        <img src="images/spatula.png" alt="Ikona szpachli - usługi szpachlowania ścian">
                     </div>
                     <h3 class="service-title">Szpachlowanie</h3>
                     <div class="service-description">
@@ -132,7 +134,7 @@
                 </div>
                 <div class="service-card" data-service="zabudowy">
                     <div class="service-icon">
-                        <img src="images/brush_2054319.png" alt="Zabudowy GK">
+                        <img src="images/brush_2054319.png" alt="Ikona narzędzi budowlanych - zabudowy z płyt gipsowo-kartonowych">
                     </div>
                     <h3 class="service-title">Zabudowy GK</h3>
                     <div class="service-description">
@@ -146,7 +148,7 @@
                 </div>
                 <div class="service-card" data-service="hydraulika">
                     <div class="service-icon">
-                        <img src="images/pipe.png" alt="Hydraulika">
+                        <img src="images/pipe.png" alt="Ikona rury - usługi hydrauliczne i instalacje sanitarne">
                     </div>
                     <h3 class="service-title">Hydraulika</h3>
                     <div class="service-description">
@@ -160,7 +162,7 @@
                 </div>
                 <div class="service-card" data-service="plytki">
                     <div class="service-icon">
-                        <img src="images/tile_2515354.png" alt="Płytki glazura/terakota">
+                        <img src="images/tile_2515354.png" alt="Ikona płytki ceramicznej - układanie glazury i terakoty">
                     </div>
                     <h3 class="service-title">Płytki glazura/terakota</h3>
                     <div class="service-description">
@@ -174,7 +176,7 @@
                 </div>
                 <div class="service-card" data-service="elektryka">
                     <div class="service-icon">
-                        <img src="images/energy.png" alt="Elektryka">
+                        <img src="images/energy.png" alt="Ikona błyskawicy - usługi elektryczne i instalacje">
                     </div>
                     <h3 class="service-title">Elektryka</h3>
                     <div class="service-description">
@@ -188,7 +190,7 @@
                 </div>
                 <div class="service-card" data-service="podlogi">
                     <div class="service-icon">
-                        <img src="images/parquet_4440909.png" alt="Układanie podłóg">
+                        <img src="images/parquet_4440909.png" alt="Ikona parkietu - układanie podłóg i paneli">
                     </div>
                     <h3 class="service-title">Układanie podłóg</h3>
                     <div class="service-description">
@@ -202,7 +204,7 @@
                 </div>
                 <div class="service-card" data-service="docieplanie">
                     <div class="service-icon">
-                        <img src="images/roof-svgrepo-com.png" alt="Docieplanie poddaszy">
+                        <img src="images/roof-svgrepo-com.png" alt="Ikona dachu - docieplanie i adaptacja poddaszy">
                     </div>
                     <h3 class="service-title">Docieplanie poddaszy</h3>
                     <div class="service-description">
@@ -231,29 +233,29 @@
             <div class="gallery-slider">
                 <div class="slides">
                     <div class="slide">
-                        <img src="imgt/10.jpeg" alt="Przykład realizacji 1">
+                        <img src="imgt/10.jpeg" alt="Remont łazienki - nowoczesne płytki i sanitariaty">
                     </div>
                     <div class="slide">
-                        <img src="imglr/4.jpeg" alt="Przykład realizacji 2">
+                        <img src="imglr/4.jpeg" alt="Wykonczona salon - eleganckie wnętrze z nowoczesnymi meblami">
                     </div>
                     <div class="slide">
-                        <img src="imgt/24.jpeg" alt="Przykład realizacji 3">
+                        <img src="imgt/24.jpeg" alt="Remont łazienki - stylowa aranżacja z płytkami pod drewno">
                     </div>
                     <div class="slide">
-                        <img src="imgt/30.jpeg" alt="Przykład realizacji 3">
+                        <img src="imgt/30.jpeg" alt="Kompletny remont łazienki - jasne kolory i funkcjonalne rozwiązania">
                     </div>
                     <div class="slide">
-                        <img src="imgt/19.jpeg" alt="Przykład realizacji 3">
+                        <img src="imgt/19.jpeg" alt="Nowoczesna łazienka - minimalistyczny design z dużą kabiną prysznicową">
                     </div>
                     <div class="slide">
-                        <img src="imgt/10.jpeg" alt="Przykład realizacji 3">
+                        <img src="imgt/10.jpeg" alt="Stylowa łazienka - połączenie klasyki z nowoczesnością">
                     </div>
                 </div>
-                <button class="slider-btn prev">
-                    <i class="fas fa-chevron-left"></i>
+                <button class="slider-btn prev" aria-label="Poprzedni obraz w galerii">
+                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
                 </button>
-                <button class="slider-btn next">
-                    <i class="fas fa-chevron-right"></i>
+                <button class="slider-btn next" aria-label="Następny obraz w galerii">
+                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
@@ -301,7 +303,7 @@
             <div class="cta-content">
                 <h2>Gotowy na nowy projekt?</h2>
                 <p>Skontaktuj się z nami już dziś i umów się na bezpłatną wycenę!</p>
-                <a href="#contact" class="cta-button smooth-scroll">SKONTAKTUJ SIĘ Z NAMI</a>
+                <a href="#contact" class="cta-button smooth-scroll" aria-label="Przejdź do sekcji kontaktowej">SKONTAKTUJ SIĘ Z NAMI</a>
             </div>
         </div>
     </section>
@@ -348,15 +350,22 @@
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Twoje imię" required>
+                            <label for="name" class="visually-hidden">Twoje imię</label>
+                            <input type="text" id="name" name="name" placeholder="Twoje imię" required aria-describedby="name-help">
+                            <span id="name-help" class="visually-hidden">Podaj swoje imię i nazwisko</span>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Twój e-mail" required>
+                            <label for="email" class="visually-hidden">Adres e-mail</label>
+                            <input type="email" id="email" name="email" placeholder="Twój e-mail" required aria-describedby="email-help">
+                            <span id="email-help" class="visually-hidden">Podaj swój adres e-mail do kontaktu</span>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required></textarea>
+                            <label for="message" class="visually-hidden">Treść wiadomości</label>
+                            <textarea id="message" name="message" placeholder="Twoja wiadomość" rows="5" required aria-describedby="message-help"></textarea>
+                            <span id="message-help" class="visually-hidden">Opisz swój projekt lub zadaj pytanie</span>
                         </div>
-                        <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+                        <button type="submit" class="submit-btn" aria-describedby="form-info">Wyślij wiadomość</button>
+                        <div id="form-info" class="visually-hidden">Kliknij aby wysłać formularz kontaktowy</div>
                     </form>
                 </div>
             </div>
@@ -376,12 +385,12 @@
     </footer>
 
     <!-- Lightbox -->
-    <div class="lightbox">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption">
+        <button class="lightbox-close" aria-label="Zamknij podgląd obrazu">&times;</button>
+        <img class="lightbox-content" id="lightbox-img" alt="Podgląd obrazu z galerii">
         <span class="lightbox-caption" id="lightbox-caption"></span>
-        <button class="lightbox-nav lightbox-prev">&#10094;</button>
-        <button class="lightbox-nav lightbox-next">&#10095;</button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Poprzedni obraz">&#10094;</button>
+        <button class="lightbox-nav lightbox-next" aria-label="Następny obraz">&#10095;</button>
     </div>
 
     <!-- EmailJS SDK -->

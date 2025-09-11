@@ -18,8 +18,13 @@ const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
 hamburger.addEventListener('click', () => {
+    const isExpanded = hamburger.classList.contains('active');
     hamburger.classList.toggle('active');
     navMenu.classList.toggle('active');
+    
+    // Update ARIA attributes for accessibility
+    hamburger.setAttribute('aria-expanded', !isExpanded);
+    hamburger.setAttribute('aria-label', isExpanded ? 'Otwórz menu nawigacji' : 'Zamknij menu nawigacji');
 });
 
 // Zamknij menu po kliknięciu w link
@@ -27,6 +32,9 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
         hamburger.classList.remove('active');
         navMenu.classList.remove('active');
+        // Update ARIA attributes
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Otwórz menu nawigacji');
     });
 });
 
