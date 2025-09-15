@@ -14,28 +14,45 @@ document.querySelectorAll('.smooth-scroll').forEach(anchor => {
 });
 
 // Nawigacja mobilna
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    const isExpanded = hamburger.classList.contains('active');
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    
-    // Update ARIA attributes for accessibility
-    hamburger.setAttribute('aria-expanded', !isExpanded);
-    hamburger.setAttribute('aria-label', isExpanded ? 'Otwórz menu nawigacji' : 'Zamknij menu nawigacji');
-});
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            
+            // Update ARIA attributes for accessibility
+            this.setAttribute('aria-expanded', !isExpanded);
+            this.setAttribute('aria-label', isExpanded ? 'Otwórz menu nawigacji' : 'Zamknij menu nawigacji');
+        });
 
-// Zamknij menu po kliknięciu w link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-        // Update ARIA attributes
-        hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', 'Otwórz menu nawigacji');
-    });
+        // Zamknij menu po kliknięciu w link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                // Update ARIA attributes
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Otwórz menu nawigacji');
+            });
+        });
+        
+        // Zamknij menu po kliknięciu poza menu
+        document.addEventListener('click', function(event) {
+            const isClickInsideNav = navMenu.contains(event.target);
+            const isClickOnHamburger = hamburger.contains(event.target);
+            
+            if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Otwórz menu nawigacji');
+            }
+        });
+    }
 });
 
 // Slider w galerii
@@ -183,18 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Zmiana stylu nawigacji przy przewijaniu
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const scrollPosition = window.scrollY;
-    
-    if (scrollPosition > 100) {
-        navbar.style.padding = '10px 0';
-        navbar.style.background = 'rgba(0, 0, 0, 0.95)';
-    } else {
-        navbar.style.padding = '15px 0';
-        navbar.style.background = 'rgba(0, 0, 0, 0.9)';
-    }
-});
+// Removed to keep navbar fixed at top
 
 // Lightbox functionality
 let lightbox;
@@ -404,4 +410,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // Floating contact button functionality
+    const floatingContact = document.querySelector('.floating-contact');
+    const floatingBtn = document.querySelector('.floating-btn');
+    
+    if (floatingBtn && floatingContact) {
+        floatingBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            floatingContact.classList.toggle('active');
+            
+            // Update ARIA attributes
+            const isExpanded = floatingContact.classList.contains('active');
+            floatingBtn.setAttribute('aria-expanded', isExpanded);
+            floatingBtn.setAttribute('aria-label', isExpanded ? 'Zamknij opcje kontaktu' : 'Otwórz opcje kontaktu');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!floatingContact.contains(e.target)) {
+                floatingContact.classList.remove('active');
+                floatingBtn.setAttribute('aria-expanded', 'false');
+                floatingBtn.setAttribute('aria-label', 'Otwórz opcje kontaktu');
+            }
+        });
+    }
 });

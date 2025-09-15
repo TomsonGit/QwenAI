@@ -37,34 +37,34 @@
     </section>
 
     <!-- Nawigacja -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Główna nawigacja">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="index.html#main">
                     <img src="images/logoKATtest.png" alt="K.A.T. Service Logo">
                 </a>
             </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html#offer" class="nav-link">Oferta</a>
+            <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="index.html#offer" class="nav-link" role="menuitem">Oferta</a>
                 </li>
-                <li class="nav-item">
-                    <a href="index.html#gallery" class="nav-link">Galeria</a>
+                <li class="nav-item" role="none">
+                    <a href="index.html#gallery" class="nav-link" role="menuitem">Galeria</a>
                 </li>
-                <li class="nav-item">
-                    <a href="index.html#contact" class="nav-link">Kontakt</a>
+                <li class="nav-item" role="none">
+                    <a href="index.html#contact" class="nav-link" role="menuitem">Kontakt</a>
                 </li>
-                <li class="nav-item">
-                    <a href="https://fixly.pl/profil/tchorzewski-krzysztof" class="nav-link" target="_blank">
-                        <img src="images/fixlyicon.png" alt="Fixly" class="fixly-icon">
+                <li class="nav-item" role="none">
+                    <a href="https://fixly.pl/profil/tchorzewski-krzysztof" class="nav-link" target="_blank" aria-label="Zobacz nasz profil na Fixly - otworzy się w nowej karcie" role="menuitem">
+                        <img src="images/fixlyicon.png" alt="Fixly - platforma usług remontowych" class="fixly-icon">
                     </a>
                 </li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
+            <button class="hamburger" aria-label="Otwórz menu nawigacji" aria-expanded="false">
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+                <span class="bar" aria-hidden="true"></span>
+            </button>
         </div>
     </nav>
     
@@ -113,7 +113,7 @@
             const galleryGrid = document.querySelector('.gallery-grid');
             // There are 9 images in imgbr directory (bedrooms)
             const images = [];
-            for (let i = 1; i <= 9; i++) {
+            for (let i = 1; i <= 6; i++) {
                 images.push({
                     src: `imgbr/${i}.jpeg`,
                     alt: `Realizacja sypialni ${i}`

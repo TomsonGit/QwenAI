@@ -20,22 +20,26 @@
 
 /* Focus indicators for keyboard navigation */
 *:focus {
-    outline: 2px solid #fff;
-    outline-offset: 2px;
+    outline: none;
 }
 
 .nav-link:focus,
 .cta-button:focus,
 .submit-btn:focus,
 button:focus {
-    outline: 2px solid #fff;
-    outline-offset: 2px;
-    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+    outline: none;
+    box-shadow: none;
 }
 
 .hamburger:focus {
+    outline: none;
+}
+
+/* Keep focus style for floating button */
+.floating-btn:focus {
     outline: 2px solid #fff;
     outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
 /* Improved touch targets */
@@ -91,12 +95,13 @@ button:focus {
 }
 
 /* Performance optimizations */
-* {
+/* Removed to prevent issues with fixed positioning */
+/* * {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-perspective: 1000;
     perspective: 1000;
-}
+} */
 
 img {
     max-width: 100%;
@@ -192,6 +197,12 @@ html {
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
+.floating-btn:focus {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
 .contact-menu {
     position: absolute;
     bottom: 70px;
@@ -206,7 +217,8 @@ html {
 }
 
 .floating-contact:hover .contact-menu,
-.floating-contact:focus-within .contact-menu {
+.floating-contact:focus-within .contact-menu,
+.floating-contact.active .contact-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -268,8 +280,8 @@ body {
 .hero {
     height: 100vh;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))/*, 
-                url('../images/remontblur.jpg') no-repeat center center/cover*/;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('../images/remontblur.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -355,11 +367,11 @@ body {
 
 /* Nawigacja */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 15px 0;
@@ -569,19 +581,20 @@ body {
 }
 
 .gallery-category {
-    padding: 10px 25px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 24px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  backdrop-filter: blur(5px);
+  transition: all 0.2s ease;
+  text-decoration: none;
 }
 
 .gallery-category:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+  background: rgba(163, 230, 53, 0.3);
+  border-color: #a3e635;
+  transform: translateY(-3px);
 }
 
 .gallery-grid {
@@ -1063,12 +1076,16 @@ footer {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.95);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        transition: left 0.3s ease;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(10px);
+        z-index: 999;
+        height: calc(100vh - 70px);
+        overflow-y: auto;
+        padding: 20px 0;
     }
 
     .nav-menu.active {
@@ -1076,11 +1093,22 @@ footer {
     }
 
     .nav-item {
-        margin: 20px 0;
+        margin: 15px 0;
+        width: 100%;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px 0;
+        font-size: 1.2rem;
     }
 
     .hamburger {
         display: flex;
+        z-index: 1000;
+        background: transparent;
+        border: none;
+        cursor: pointer;
     }
 
     .hamburger.active .bar:nth-child(2) {
@@ -1093,6 +1121,12 @@ footer {
 
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Fix for Fixly icon in mobile menu */
+    .fixly-icon {
+        height: 24px;
+        margin: 0 auto;
     }
 }
 
