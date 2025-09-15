@@ -53,6 +53,29 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Navbar visibility - hide on hero section, show when scrolling down
+    const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('#main'); // Hero section has id="main"
+    
+    if (navbar && heroSection) {
+        // Initially hide navbar
+        navbar.style.transform = 'translateY(-100%)';
+        navbar.style.transition = 'transform 0.3s ease';
+        
+        window.addEventListener('scroll', function() {
+            const heroHeight = heroSection.offsetHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Show navbar when scrolled past hero section
+            if (scrollTop > heroHeight) {
+                navbar.style.transform = 'translateY(0)';
+            } else {
+                // Hide navbar when on hero section
+                navbar.style.transform = 'translateY(-100%)';
+            }
+        });
+    }
 });
 
 // Slider w galerii
