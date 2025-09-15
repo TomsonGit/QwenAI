@@ -376,35 +376,14 @@
         <div class="container">
             <h2 class="section-title">Przykłady zrealizowanych projektów</h2>
             <div class="gallery-categories">
-                <a href="toilets.html" class="gallery-category">Łazienki</a>
-                <a href="livingroom.html" class="gallery-category">Salony</a>
-                <a href="kit.html" class="gallery-category">Poddasza</a>
-                <a href="bedroom.html" class="gallery-category">Sypialnie</a>
+                <button class="gallery-category active" data-category="all">Wszystkie</button>
+                <button class="gallery-category" data-category="toilets">Łazienki</button>
+                <button class="gallery-category" data-category="livingroom">Salony</button>
+                <button class="gallery-category" data-category="attic">Poddasza</button>
+                <button class="gallery-category" data-category="bedroom">Sypialnie</button>
             </div>
-            <div class="gallery-slider">
-                <div class="slides">
-                    <div class="slide">
-                        <img src="imgt/10.jpeg" alt="Remont łazienki - nowoczesne płytki i sanitariaty" loading="eager">
-                    </div>
-                    <div class="slide">
-                        <img src="imglr/2.jpeg" alt="Wykonczona salon - eleganckie wnętrze z nowoczesnymi meblami" loading="lazy">
-                    </div>
-                    <div class="slide">
-                        <img src="imgt/32.jpeg" alt="Remont łazienki - stylowa aranżacja z płytkami" loading="lazy">
-                    </div>
-                    <div class="slide">
-                        <img src="imgt/30.jpeg" alt="Kompletny remont łazienki - jasne kolory i funkcjonalne rozwiązania" loading="lazy">
-                    </div>
-                    <div class="slide">
-                        <img src="imgt/19.jpeg" alt="Nowoczesna łazienka - minimalistyczny design z dużą kabiną prysznicową" loading="lazy">
-                    </div>
-                </div>
-                <button class="slider-btn prev" aria-label="Poprzedni obraz w galerii">
-                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
-                </button>
-                <button class="slider-btn next" aria-label="Następny obraz w galerii">
-                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
-                </button>
+            <div class="gallery-grid">
+                <!-- Gallery items will be added here by JavaScript -->
             </div>
         </div>
     </section>
@@ -569,7 +548,7 @@
     </div>
 
     <!-- EmailJS SDK - defer loading -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
             emailjs.init("0VNKz3dVMKzx9RfhM");

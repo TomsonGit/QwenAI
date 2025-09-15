@@ -76,6 +76,191 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Gallery category filtering
+    const galleryCategories = document.querySelectorAll('.gallery-category');
+    const galleryGrid = document.querySelector('.gallery-grid');
+    
+    if (galleryCategories.length > 0 && galleryGrid) {
+        // Define image categories with their directories and counts
+        const categories = {
+            all: [
+                // Toilets (imgt)
+                ...Array.from({length: 54}, (_, i) => ({
+                    src: `imgt/${i + 1}.jpeg`,
+                    alt: `Realizacja łazienki ${i + 1}`,
+                    category: 'toilets'
+                })),
+                // Living rooms (imglr)
+                ...Array.from({length: 13}, (_, i) => ({
+                    src: `imglr/${i + 1}.jpeg`,
+                    alt: `Realizacja salonu ${i + 1}`,
+                    category: 'livingroom'
+                })),
+                // Bedrooms (imgbr)
+                ...Array.from({length: 6}, (_, i) => ({
+                    src: `imgbr/${i + 1}.jpeg`,
+                    alt: `Realizacja sypialni ${i + 1}`,
+                    category: 'bedroom'
+                })),
+                // Attics (imgk)
+                ...Array.from({length: 7}, (_, i) => ({
+                    src: `imgk/${i + 1}.jpeg`,
+                    alt: `Realizacja poddasza ${i + 1}`,
+                    category: 'attic'
+                }))
+            ],
+            toilets: Array.from({length: 54}, (_, i) => ({
+                src: `imgt/${i + 1}.jpeg`,
+                alt: `Realizacja łazienki ${i + 1}`,
+                category: 'toilets'
+            })),
+            livingroom: Array.from({length: 13}, (_, i) => ({
+                src: `imglr/${i + 1}.jpeg`,
+                alt: `Realizacja salonu ${i + 1}`,
+                category: 'livingroom'
+            })),
+            bedroom: Array.from({length: 6}, (_, i) => ({
+                src: `imgbr/${i + 1}.jpeg`,
+                alt: `Realizacja sypialni ${i + 1}`,
+                category: 'bedroom'
+            })),
+            attic: Array.from({length: 7}, (_, i) => ({
+                src: `imgk/${i + 1}.jpeg`,
+                alt: `Realizacja poddasza ${i + 1}`,
+                category: 'attic'
+            }))
+        };
+        
+        // Variables for pagination
+        let currentCategory = 'all';
+        let displayedImages = [];
+        let currentIndex = 0;
+        const imagesPerPage = 8;
+        
+        // Function to get 5 random images from all categories
+        function getRandomImages(allImages, count = 8) {
+            // Shuffle the array to randomize order
+            const shuffled = [...allImages].sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+        
+        // Function to render gallery items
+        function renderGallery(category = 'all', reset = true) {
+            // Store current category
+            currentCategory = category;
+            
+            // Get images for selected category
+            const allImages = categories[category] || categories.all;
+            
+            // Reset index if requested
+            if (reset) {
+                currentIndex = 0;
+                // Remove load more button and counter if they exist
+                const loadMoreContainer = document.querySelector('.load-more-container');
+                if (loadMoreContainer) {
+                    loadMoreContainer.remove();
+                }
+                const counterContainer = document.querySelector('.counter-container');
+                if (counterContainer) {
+                    counterContainer.remove();
+                }
+            }
+            
+            let imagesToDisplay = [];
+            
+            if (reset && category === 'all') {
+                // For all category, show 5 random images
+                imagesToDisplay = getRandomImages(allImages, 8);
+                currentIndex = imagesToDisplay.length;
+                displayedImages = [...imagesToDisplay];
+            } else if (reset) {
+                // For other categories, show first page of images
+                const endIndex = Math.min(imagesPerPage, allImages.length);
+                imagesToDisplay = allImages.slice(0, endIndex);
+                currentIndex = endIndex;
+                displayedImages = [...imagesToDisplay];
+            } else {
+                // Loading more images
+                const startIndex = currentIndex;
+                const endIndex = Math.min(startIndex + imagesPerPage, allImages.length);
+                imagesToDisplay = allImages.slice(startIndex, endIndex);
+                currentIndex = endIndex;
+                displayedImages = displayedImages.concat(imagesToDisplay);
+            }
+            
+            // Clear existing gallery items if resetting
+            if (reset) {
+                galleryGrid.innerHTML = '';
+            }
+            
+            // Create gallery items
+            imagesToDisplay.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `<img src="${image.src}" alt="${image.alt}" loading="lazy">`;
+                galleryItem.addEventListener('click', () => {
+                    // Open lightbox with this image
+                    const globalIndex = allImages.findIndex(img => img.src === image.src);
+                    openLightbox(image.src, image.alt, allImages, globalIndex);
+                });
+                galleryGrid.appendChild(galleryItem);
+            });
+            
+            // Create or update counter
+            let counterContainer = document.querySelector('.counter-container');
+            if (!counterContainer) {
+                counterContainer = document.createElement('div');
+                counterContainer.className = 'counter-container';
+                galleryGrid.parentNode.insertBefore(counterContainer, galleryGrid.nextSibling);
+            }
+            counterContainer.innerHTML = `<p class="image-counter">${displayedImages.length} z ${allImages.length} zdjęć</p>`;
+            
+            // Add load more button if there are more images
+            if (currentIndex < allImages.length) {
+                // Create or update load more button
+                let loadMoreContainer = document.querySelector('.load-more-container');
+                if (!loadMoreContainer) {
+                    loadMoreContainer = document.createElement('div');
+                    loadMoreContainer.className = 'load-more-container';
+                    galleryGrid.parentNode.insertBefore(loadMoreContainer, 
+                        document.querySelector('.counter-container').nextSibling);
+                }
+                
+                loadMoreContainer.innerHTML = '<button class="load-more-btn">Załaduj więcej</button>';
+                const loadMoreBtn = loadMoreContainer.querySelector('.load-more-btn');
+                loadMoreBtn.addEventListener('click', () => {
+                    renderGallery(category, false);
+                });
+            } else {
+                // Remove load more button if no more images
+                const loadMoreContainer = document.querySelector('.load-more-container');
+                if (loadMoreContainer) {
+                    loadMoreContainer.remove();
+                }
+            }
+        }
+        
+        // Initial render with 5 random images
+        renderGallery('all');
+        
+        // Add event listeners to category buttons
+        galleryCategories.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                galleryCategories.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Get category from data attribute
+                const category = this.getAttribute('data-category');
+                
+                // Render gallery for selected category
+                renderGallery(category, true);
+            });
+        });
+    }
 });
 
 // Slider w galerii

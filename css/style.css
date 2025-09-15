@@ -271,7 +271,8 @@ body {
 .hero {
     height: 100vh;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url('../images/remontblur.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('../images/remontblur.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -365,8 +366,7 @@ body {
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 15px 0;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .nav-container {
@@ -567,54 +567,126 @@ body {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 12px;
     margin-bottom: 50px;
+    padding: 0 16px;
 }
 
 .gallery-category {
-    padding: 10px 25px;
+    padding: 10px 20px;
     background: rgba(255, 255, 255, 0.1);
     color: #fff;
-    text-decoration: none;
+    border: none;
     border-radius: 30px;
     font-weight: 500;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    font-size: 0.9rem;
 }
 
 .gallery-category:hover {
     background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+}
+
+.gallery-category.active {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    gap: 16px;
+    padding: 0 16px;
     margin-top: 30px;
+    max-height: 50vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
 }
 
 .gallery-item {
+    border-radius: 8px;
     overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: black;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     display: block;
     transition: transform 0.3s ease;
+    vertical-align: middle;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+}
+
+/* Load More Button and Counter */
+.load-more-container {
+    text-align: center;
+    margin: 20px 0;
+    padding: 0 16px;
+}
+
+.load-more-btn {
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.load-more-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.counter-container {
+    text-align: center;
+    margin: 15px 0;
+    padding: 0 16px;
+}
+
+.image-counter {
+    color: #aaa;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Lightbox Styles */
@@ -762,7 +834,7 @@ body {
 
 /* Sekcja opinii klientów */
 .testimonials {
-    padding: 100px 0;
+    padding: 50px 0;
     background: #000;
 }
 
@@ -1236,6 +1308,24 @@ footer {
         max-width: 300px;
         margin: 0 auto;
     }
+    
+    /* Mobile-specific gallery styles */
+    .gallery-categories {
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    
+    .gallery-category {
+        padding: 8px 16px;
+        font-size: 0.8rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-auto-rows: minmax(150px, auto);
+        gap: 12px;
+        max-height: 40vh;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1267,6 +1357,24 @@ footer {
     .gallery {
         padding: 50px 0;
     }
+    
+    /* Mobile-specific gallery styles */
+    .gallery-categories {
+        gap: 6px;
+        margin-bottom: 20px;
+    }
+    
+    .gallery-category {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        grid-auto-rows: minmax(130px, auto);
+        gap: 10px;
+        max-height: 35vh;
+    }
 
     .contact {
         padding: 50px 0;
@@ -1274,5 +1382,14 @@ footer {
 
     .submit-btn {
         width: 100%;
+    }
+    
+    .load-more-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .image-counter {
+        font-size: 0.8rem;
     }
 }
