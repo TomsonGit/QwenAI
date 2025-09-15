@@ -94,15 +94,6 @@ button:focus {
     box-shadow: 0 0 5px rgba(244, 67, 54, 0.3);
 }
 
-/* Performance optimizations */
-/* Removed to prevent issues with fixed positioning */
-/* * {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
-} */
-
 img {
     max-width: 100%;
     height: auto;
@@ -280,8 +271,8 @@ body {
 .hero {
     height: 100vh;
     position: relative;
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('../images/remontblur.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7))/*, 
+                url('../images/remontblur.jpg') no-repeat center center/cover*/;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -581,20 +572,19 @@ body {
 }
 
 .gallery-category {
-  padding: 12px 24px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  backdrop-filter: blur(5px);
-  transition: all 0.2s ease;
-  text-decoration: none;
+    padding: 10px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .gallery-category:hover {
-  background: rgba(163, 230, 53, 0.3);
-  border-color: #a3e635;
-  transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
 }
 
 .gallery-grid {
@@ -1069,6 +1059,71 @@ footer {
     margin-bottom: 15px;
 }
 
+/* Sekcja błędu 404 */
+.error-404 {
+    padding: 100px 0;
+    background: #000;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.error-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.error-number {
+    font-size: 8rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.error-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ccc;
+}
+
+.error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.error-search p {
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.error-search ul {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+.error-search li {
+    margin-bottom: 10px;
+}
+
+.error-image {
+    font-size: 5rem;
+    color: #4CAF50;
+    margin-top: 30px;
+}
+
 /* Responsywność */
 @media (max-width: 992px) {
     .nav-menu {
@@ -1153,6 +1208,33 @@ footer {
 
     .contact-content {
         grid-template-columns: 1fr;
+    }
+    
+    .error-404 {
+        padding: 50px 0;
+    }
+    
+    .error-number {
+        font-size: 5rem;
+    }
+    
+    .error-title {
+        font-size: 2rem;
+    }
+    
+    .error-message {
+        font-size: 1rem;
+    }
+    
+    .error-actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .error-actions a {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
     }
 }
 
